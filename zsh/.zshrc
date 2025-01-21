@@ -3,7 +3,11 @@ eval "$(starship init zsh)"
 
 # Run fastfetch in the background
 #(fastfetch &)
-fastfetch
+if [[ $TERM =~ "kitty" ]]; then
+  fastfetch
+else
+  fastfetch --config ~/.config/fastfetch/os.jsonc
+fi
 # History settings
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:[bf]g:clear:history:exit:q:pwd:* --help"
