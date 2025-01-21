@@ -1,0 +1,37 @@
+{
+    // editor
+    "editor.fontFamily": "MesloLGS Nerd Font Mono",
+    "editor.fontSize": 14,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.smoothScrolling": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.cursorBlinking": "expand",
+    "editor.minimap.side": "left",
+    "editor.fontLigatures": true,
+    "editor.mouseWheelZoom": true,
+    // terminal
+    "terminal.integrated.fontFamily": " MesloLGS Nerd Font Mono",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.external.linuxExec": "kitty",
+    "terminal.explorerKind": "both",
+    "terminal.sourceControlRepositoriesKind": "both",
+    "terminal.integrated.cursorBlinking": true,
+    // workbench
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-perfect-mocha",
+    "workbench.statusBar.visible": false,
+    // others
+    "window.menuBarVisibility": "toggle",
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.enabled": false,
+    "extensions.autoUpdate": false,
+    "telemetry.telemetryLevel": "off",
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDelete": false,
+    "explorer.expandSingleFolderWorkspaces": false,
+}
