@@ -5,9 +5,8 @@ return {
     config = function()
       local config = require("nvim-treesitter.configs")
       config.setup({
-        auto_install = false,
+        auto_install = true,
         ensure_installed = {
-          "bash",
           "lua",
         },
         heighlight = { enable = true },

@@ -10,7 +10,11 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      ensure_installed = { "lua_ls", "ts_ls", "gopls" },
+      ensure_installed = {
+        "lua_ls", -- lua language server
+        "ts_ls", -- ts/js language server
+        "gopls", -- go language server
+      },
       automatic_installation = false,
     }
   },
