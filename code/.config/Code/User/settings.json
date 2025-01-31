@@ -15,7 +15,7 @@
     "editor.mouseWheelZoom": true,
     // terminal
     "terminal.integrated.fontFamily": " MesloLGS Nerd Font Mono",
-    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.external.linuxExec": "kitty",
     "terminal.explorerKind": "both",
     "terminal.sourceControlRepositoriesKind": "both",

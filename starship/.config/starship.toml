@@ -92,6 +92,7 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+CachyOS = "󰣇"
 
 [username]
 show_always = true
@@ -176,6 +177,12 @@ disabled = false
 time_format = "%R"
 style = "bg:peach"
 format = '[[  $time ](fg:mantle bg:purple)]($style)'
+
+[cmd_duration]
+disabled = false
+time_format = "%R"
+style = "bg:peach"
+format = '[[  $duration ](fg:mantle bg:purple)]($style)'
 
 [line_break]
 disabled = false
