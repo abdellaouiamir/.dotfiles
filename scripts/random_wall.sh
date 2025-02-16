@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPAER_DIR=~/Git-Repositories/anime
+WALLPAPAER_DIR=~/wallpapers
 while true; do
   for img in $WALLPAPAER_DIR/*
   do
