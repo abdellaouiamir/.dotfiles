@@ -49,12 +49,7 @@ HISTFILE=~/.zsh_history #Set history file location
 # FZF
 eval "$(fzf --zsh)"
 # FZF settings
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---color=selected-bg:#45475a \
---multi"
+# add this line when u remove the transparent background
 #export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 #export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
@@ -81,12 +76,5 @@ alias cleanup="sudo pacman -Rsn \$(pacman -Qtdq)"
 alias jctl="journalctl -p 3 -xb"
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
-# Editor settings
-export EDITOR="nvim"
-export SUDO_EDITOR="$EDITOR"
-
 # Shell integrations
 eval "$(starship init zsh)"
-
-# Add local script the path variable
-export PATH="$HOME/.local/bin:$PATH"
