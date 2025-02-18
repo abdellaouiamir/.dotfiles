@@ -28,7 +28,7 @@ return {
 		picker = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
-		scroll = { enabled = false },
+		scroll = { enabled = true },
 		scope = { enabled = false },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },

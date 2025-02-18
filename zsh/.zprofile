@@ -12,4 +12,3 @@ export SUDO_EDITOR="$EDITOR"
 
 # Add local script the path variable
 export PATH="$HOME/.local/bin:$PATH"
-
