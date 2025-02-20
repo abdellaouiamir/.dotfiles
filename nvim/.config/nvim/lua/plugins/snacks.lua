@@ -28,9 +28,9 @@ return {
 		picker = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
-		scroll = { enabled = true },
+		scroll = { enabled = false },
 		scope = { enabled = false },
-		statuscolumn = { enabled = true },
+		statuscolumn = { enabled = false },
 		words = { enabled = true },
 		dim = { enabled = true },
 	},
@@ -55,8 +55,7 @@ return {
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers", },
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep Files", },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-    -- Search
-    { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
     -- Explorer
     { "<leader>e", function() Snacks.explorer() end, desc = "Explorer", },
     -- Notification
@@ -69,7 +68,7 @@ return {
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
     { "<leader><leader>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
     -- Zen
-    { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+    -- { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
   },
   init = function ()
     vim.api.nvim_create_autocmd("User", {
@@ -87,13 +86,13 @@ return {
         -- Create some toggle mappings
         -- Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
         -- Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-        Snacks.toggle.line_number():map("<leader>ul")
+        -- Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
+        -- Snacks.toggle.line_number():map("<leader>ul")
         -- Snacks.toggle.diagnostics():map("<leader>ud")
         -- Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
         -- Snacks.toggle.treesitter():map("<leader>uT")
         -- Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-        Snacks.toggle.inlay_hints():map("<leader>uh")
+        -- Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>ud")
       end,

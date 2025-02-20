@@ -14,6 +14,7 @@ return {
         "lua_ls", -- lua language server
         "ts_ls", -- ts/js language server
         "gopls", -- go language server
+        "pylsp", -- python language server
       },
       automatic_installation = false,
     },
@@ -105,6 +106,11 @@ return {
             },
           },
         },
+      })
+      lspconfig.pylsp.setup({
+        on_init = on_init,
+        on_attach = on_attach,
+        capabilities = capabilities,
       })
     end,
   },
