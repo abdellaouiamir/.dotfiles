@@ -42,11 +42,12 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 #
+#theme = tokyonight
 theme = catppuccin-mocha
 font-family = Meslo LGS Nerd Font Mono
 # font-family = CaskaydiaMono Nerd Font
 font-size = 16
-background-opacity = 0.9
+background-opacity = 0.8
 gtk-titlebar = false
 # custom-shader = /home/chris/bloom.glsl
 #custom-shader = /home/chris/crt.glsl
