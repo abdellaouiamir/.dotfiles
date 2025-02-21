@@ -15,39 +15,18 @@ return {
         "ts_ls", -- ts/js language server
         "gopls", -- go language server
         "pylsp", -- python language server
+        "clangd", -- C/C++ language server
       },
       automatic_installation = false,
     },
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = { 'saghen/blink.cmp' },
     lazy = false,
     config = function()
-      -- auto completions
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
-      local capabilities = vim.tbl_deep_extend(
-        "force",
-        {},
-        vim.lsp.protocol.make_client_capabilities(),
-        cmp_nvim_lsp.default_capabilities()
-      )
-      capabilities.textDocument.completion.completionItem = {
-        documentationFormat = { "markdown", "plaintext" },
-        snippetSupport = true,
-        preselectSupport = true,
-        insertReplaceSupport = true,
-        labelDetailsSupport = true,
-        deprecatedSupport = true,
-        commitCharactersSupport = true,
-        tagSupport = { valueSet = { 1 } },
-        resolveSupport = {
-          properties = {
-            "documentation",
-            "detail",
-            "additionalTextEdits",
-          },
-        },
-      }
+      -- capabilities
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       -- on_init
       local on_init = function(client, _)
         if client.supports_method("textDocument/semanticTokens") then
@@ -82,6 +61,25 @@ return {
         on_init = on_init,
         on_attach = on_attach,
         capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              -- Tell the language server which version of Lua you're using (most likely LuaJIT)
+              version = 'LuaJIT',
+              -- Setup your lua path
+              path = vim.split(package.path, ';'),
+            },
+            diagnostics = {
+              globals = { 'vim' },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file('', true),
+              checkThirdParty = false,
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = { enable = false },
+          },
+        },
       })
       lspconfig.ts_ls.setup({
         on_init = on_init,
@@ -108,6 +106,11 @@ return {
         },
       })
       lspconfig.pylsp.setup({
+        on_init = on_init,
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+      lspconfig.clangd.setup({
         on_init = on_init,
         on_attach = on_attach,
         capabilities = capabilities,
