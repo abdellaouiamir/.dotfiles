@@ -52,7 +52,7 @@ return {
     -- Find
     { "<C-p>", function() Snacks.picker.pick("files") end, desc = "Find Files", },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent Files", },
-    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers", },
+    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Find Buffer", },
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep Files", },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
@@ -62,7 +62,7 @@ return {
     { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     -- Buffer
-    { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>bc", function() Snacks.bufdelete.all() end, desc = "Delete all Buffers" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     -- file
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },

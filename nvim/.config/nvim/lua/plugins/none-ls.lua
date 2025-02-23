@@ -30,7 +30,7 @@ return {
           ]=]
 
 					-- Add a keybinding to format the current buffer
-					vim.keymap.set("n", "<leader>lf", function()
+					vim.keymap.set("n", "<leader>=", function()
 						vim.lsp.buf.format()
 					end, { desc = "Format current buffer" })
 				end
