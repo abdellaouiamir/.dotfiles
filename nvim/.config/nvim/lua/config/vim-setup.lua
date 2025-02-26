@@ -30,4 +30,4 @@ vim.opt.isfname:append("@-@") -- Allow filenames with '@' symbol
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "100" -- Show a vertical line at column 100
+vim.opt.colorcolumn = "80" -- Show a vertical line at column 100
