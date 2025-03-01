@@ -1,0 +1,9 @@
+[Unit]
+Description=Change wallpaper
+
+[Service]
+ExecStart=%h/.local/bin/wallchange.sh
+Type=simple
+
+[Install]
+WantedBy=default.target

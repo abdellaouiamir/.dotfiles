@@ -1,0 +1,9 @@
+[Unit]
+Description=run my wallpaper script every 5 minutes
+
+[Timer]
+OnUnitActiveSec=5m
+OnBootSec=5m
+
+[Install]
+WantedBy=timers.target
