@@ -98,6 +98,7 @@ symbol = ""
 format =  '[\($symbol $branch\)]($style)'
 
 [git_status]
+style = "fg:red"
 format = ' [($all_status$ahead_behind )]($style)'
 
 [nodejs]
@@ -138,6 +139,11 @@ format = '[ $symbol( $version) ]($style)'
 [haskell]
 style = "fg:purple"
 symbol = ""
+format = '[ $symbol( $version) ]($style)'
+
+[lua]
+style = "fg:blue"
+symbol = ""
 format = '[ $symbol( $version) ]($style)'
 
 [python]

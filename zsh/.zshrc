@@ -1,6 +1,6 @@
 # Run fastfetch in the background
 if [[ $TERM =~ "kitty" ]]; then
-  (fastfetch &)
+  (fastfetch)
 else
   (fastfetch --config ~/.config/fastfetch/os.jsonc &)
 fi
