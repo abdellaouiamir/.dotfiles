@@ -7,3 +7,7 @@ cp $WALLPAPER $BACKGROUND
 if pgrep Hyprland >/dev/null 2>&1; then 
   hyprctl hyprpaper reload ,$BACKGROUND >/dev/null 2>&1
 fi
+
+if pgrep hyprlock >/dev/null 2>&1; then 
+  pkill -USR2 hyprlock >/dev/null 2>&1
+fi
