@@ -70,3 +70,9 @@ wlr-randr-git
 hyprprop
 bibata-cursor-theme-bin
 tela-circle-icon-theme-dracula
+
+
+
+######
+sddm
+plymouth
