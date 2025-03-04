@@ -76,7 +76,9 @@ alias cleanup="sudo pacman -Rsn \$(pacman -Qtdq)"
 alias jctl="journalctl -p 3 -xb"
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
-# Export variables
+# Shell integrations
+eval "$(starship init zsh)"
+
 # Setup fzf color
 #--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 export FZF_DEFAULT_OPTS=" \
@@ -90,6 +92,3 @@ export SUDO_EDITOR="$EDITOR"
 
 # Add local script the path variable
 export PATH="$HOME/.local/bin:$PATH"
-
-# Shell integrations
-eval "$(starship init zsh)"

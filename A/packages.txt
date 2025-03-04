@@ -78,3 +78,4 @@ tela-circle-icon-theme-dracula
 ######
 sddm
 plymouth
+nemo
