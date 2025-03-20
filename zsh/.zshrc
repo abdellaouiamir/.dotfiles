@@ -67,6 +67,7 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
 # Aliases
+alias dotfiles="cd ~/.dotfiles"
 alias ls="ls --color"
 alias rmpkg="sudo pacman -Rsn"
 alias cleanch="sudo pacman -Scc"
