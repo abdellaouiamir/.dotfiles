@@ -76,6 +76,7 @@ alias update="sudo pacman -Syu"
 alias cleanup="sudo pacman -Rsn \$(pacman -Qtdq)"
 alias jctl="journalctl -p 3 -xb"
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias kubectl="minikube kubectl --"
 
 # Shell integrations
 eval "$(starship init zsh)"

@@ -1,0 +1,10 @@
+[Nemo Action]
+
+Active=true
+Name=Set as wallpaper
+Comment=Set current image as wallpaper
+Exec=cp %F ~/.config/background
+Icon-Name=image
+Selection=single;
+Mimetypes=image/*;
+Quote=double
