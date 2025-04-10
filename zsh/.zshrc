@@ -34,7 +34,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # History settings
-setopt INC_APPEND_HISTORY # Enable real-time history sharing
+#setopt INC_APPEND_HISTORY # Enable real-time history sharing
 setopt SHARE_HISTORY # Share history between all sessions.
 setopt HIST_IGNORE_SPACE # Ignore commands starting with a space.
 setopt HIST_REDUCE_BLANKS # Remove unnecessary blanks from commands.
