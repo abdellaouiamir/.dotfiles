@@ -82,3 +82,4 @@ alias kubectl="minikube kubectl --"
 eval "$(starship init zsh)"
 # Add local script the path variable
 export PATH="$HOME/.local/bin:$PATH"
+export GOPATH="$HOME/tmux/go"

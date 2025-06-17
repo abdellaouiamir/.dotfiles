@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/tmux/docker ~/tmux/Notes ~/tmux/work ~/tmux/study ~/tmux/vim-with-me ~/tmux/github_repo -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find ~/tmux/docker ~/tmux/Notes ~/tmux/work ~/tmux/study ~/tmux/go ~/tmux/vim-with-me ~/tmux/github_repo -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 # no option selected
 if [[ -z $selected ]]; then

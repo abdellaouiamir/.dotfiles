@@ -118,6 +118,14 @@ return {
         end,
         capabilities = capabilities,
       })
+      -- Config the error message
+      vim.diagnostic.config({
+        virtual_text = true, -- show errors inline
+        signs = true, -- show signs in the gutter
+        update_in_insert = false,
+        underline = true, -- Underline errors
+        severity_sort = true,
+      })
     end,
   },
 }
