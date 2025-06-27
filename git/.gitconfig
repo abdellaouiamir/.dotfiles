@@ -1,0 +1,11 @@
+[user]
+	name = abdellaouiamir
+	email = abdellaouiamir27@gmail.com
+[credential]
+	helper = cache
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+[pull]
+	rebase = true

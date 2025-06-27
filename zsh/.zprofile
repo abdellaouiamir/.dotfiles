@@ -9,6 +9,6 @@ export FZF_DEFAULT_OPTS=" \
 # Editor settings
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
-export GOPATH="$HOME/tmux/go"
+export GOPATH="$HOME/.go"
 # lunch Hyprland 
 #[[ $(tty) = "/dev/tty1" ]] && Hyprland

@@ -35,7 +35,7 @@ zinit cdreplay -q
 
 # History settings
 #setopt INC_APPEND_HISTORY # Enable real-time history sharing
-setopt SHARE_HISTORY # Share history between all sessions.
+#setopt SHARE_HISTORY # Share history between all sessions.
 setopt HIST_IGNORE_SPACE # Ignore commands starting with a space.
 setopt HIST_REDUCE_BLANKS # Remove unnecessary blanks from commands.
 setopt HIST_IGNORE_ALL_DUPS # Ignore duplicate commands in history.
@@ -81,5 +81,5 @@ alias kubectl="minikube kubectl --"
 # Shell integrations
 eval "$(starship init zsh)"
 # Add local script the path variable
-export PATH="$HOME/.local/bin:$PATH"
-export GOPATH="$HOME/tmux/go"
+export PATH="$HOME/.go/bin:$HOME/.local/bin:$PATH"
+#export GOPATH="$HOME/tmux/go"
