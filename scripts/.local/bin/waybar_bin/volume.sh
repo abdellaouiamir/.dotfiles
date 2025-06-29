@@ -19,7 +19,7 @@ print_error() {
 
 notify_vol() {
     vol=$(get_volume)
-    notify-send -u low "Volume" "${vol}%"
+    notify-send -h string:x-canonical-private-synchronous:volume_notif -u low "Volume" "${vol}%"
 }
 
 get_volume() {
@@ -67,9 +67,11 @@ action_volume() {
     case "${action}" in
         increase) 
             pamixer "${srce}" -i 2 
+            notify_vol
             ;;
         decrease) 
             pamixer "${srce}" -d 2 
+            notify_vol
             ;;
         toggle) 
             pamixer "${srce}" -t 
@@ -84,9 +86,9 @@ action_volume() {
 
 notify_mute() {
     if [[ $(pamixer "${srce}" --get-mute) == "true" ]]; then
-        notify-send -u low "Muted"
+        notify-send -h string:x-canonical-private-synchronous:volume_notif -u low "Muted"
     else
-        notify-send -u low "Unmuted"
+        notify-send -h string:x-canonical-private-synchronous:volume_notif -u low "Unmuted"
     fi
 }
 

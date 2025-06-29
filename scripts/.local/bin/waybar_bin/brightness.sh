@@ -27,6 +27,11 @@ get_backlight_device() {
     fi
 }
 
+notify_bright() {
+    bright=$(get_brightness "$BRIGHTNESS_DEVICE")
+    notify-send -h string:x-canonical-private-synchronous:bright_notif -u low "Brightness" "${bright}"
+}
+
 get_brightness() {
     brightnessctl -d "$1" | grep -o "(.*" | tr -d "()"
 }
@@ -75,18 +80,22 @@ while [[ "$#" -gt 0 ]]; do
             ;;
         --up)
             brightnessctl -d "$BRIGHTNESS_DEVICE" set +5%
+            notify_bright
             exit 0
             ;;
         --down)
             brightnessctl -d "$BRIGHTNESS_DEVICE" set 5%-
+            notify_bright
             exit 0
             ;;
         --max)
             brightnessctl -d "$BRIGHTNESS_DEVICE" set 100%
+            notify_bright
             exit 0
             ;;
         --min)
             brightnessctl -d "$BRIGHTNESS_DEVICE" set 0%
+            notify_bright
             exit 0
             ;;
         *)
