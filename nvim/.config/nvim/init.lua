@@ -1,6 +1,10 @@
 --vim remap
 require("config.keyremap")
 --vim config
-require("config.vim-setup")
+require("config.options")
+--autocmd
+require("config.autocmd")
+--lsp config
+require("core.lsp")
 --lazy config
-require("config.lazy")
+require("core.lazy")
