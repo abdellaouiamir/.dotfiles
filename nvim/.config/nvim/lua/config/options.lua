@@ -41,7 +41,11 @@ vim.opt.colorcolumn = "100"                        -- Show column at 100 charact
 -- vim.opt.synmaxcol = 300                            -- Syntax highlighting limit
 vim.opt.winborder = 'rounded'                         -- Set the default border for all floating windows
 
-
+-- Create undo directory if it doesn't exist
+local undodir = vim.fn.expand(os.getenv("HOME") .. "/.vim/undodir")
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
 
 -- File handling
 vim.opt.backup = false                             -- Don't create backup files
@@ -81,3 +85,15 @@ vim.opt.encoding = "UTF-8"                         -- Set encoding
 
 vim.opt.isfname:append("@-@") -- Allow filenames with '@' symbol
 -- :set splitbelow?  to see the current value
+
+-- Command-line completion
+-- vim.opt.wildmenu = true
+-- vim.opt.wildmode = "longest:full,full"
+-- vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
+
+-- Better diff options
+-- vim.opt.diffopt:append("linematch:60")
+
+-- Performance improvements
+-- vim.opt.redrawtime = 10000
+-- vim.opt.maxmempattern = 20000

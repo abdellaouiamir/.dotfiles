@@ -5,64 +5,125 @@ api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 -- wrap words "softly" (no carriage return) in mail buffer
 api.nvim_create_autocmd("Filetype", {
-	pattern = "mail",
-	callback = function()
-		vim.opt.textwidth = 0
-		vim.opt.wrapmargin = 0
-		vim.opt.wrap = true
-		vim.opt.linebreak = true
-		vim.opt.columns = 80
-		vim.opt.colorcolumn = "80"
-	end,
+  pattern = "mail",
+  callback = function()
+    vim.opt.textwidth = 0
+    vim.opt.wrapmargin = 0
+    vim.opt.wrap = true
+    vim.opt.linebreak = true
+    vim.opt.columns = 80
+    vim.opt.colorcolumn = "80"
+  end,
 })
 
--- Highlight on yank
+-- Basic autocommands
+local augroup = api.nvim_create_augroup("UserConfig", {})
+
+-- Highlight yanked text
 api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  group = augroup,
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
--- go to last loc when opening a buffer
--- this mean that when you open a file, you will be at the last position
+-- Return to last edit position when opening files
 api.nvim_create_autocmd("BufReadPost", {
-	callback = function()
-		local mark = vim.api.nvim_buf_get_mark(0, '"')
-		local lcount = vim.api.nvim_buf_line_count(0)
-		if mark[1] > 0 and mark[1] <= lcount then
-			pcall(vim.api.nvim_win_set_cursor, 0, mark)
-		end
-	end,
+  group = augroup,
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
 })
+
+-- Set filetype-specific settings
+--[[
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  pattern = { "lua", "python" },
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+  end,
+})
+]]
+
+-- Auto-close terminal when process exits
+--[[
+vim.api.nvim_create_autocmd("TermClose", {
+  group = augroup,
+  callback = function()
+    if vim.v.event.status == 0 then
+      vim.api.nvim_buf_delete(0, {})
+    end
+  end,
+})
+]]
+
+-- Disable line numbers in terminal
+--[[
+api.nvim_create_autocmd("TermOpen", {
+  group = augroup,
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+  end,
+})
+]]
+
+-- Auto-resize splits when window is resized
+--[[
+api.nvim_create_autocmd("VimResized", {
+  group = augroup,
+  callback = function()
+    vim.cmd("tabdo wincmd =")
+  end,
+})
+]]
+--[[
+api.nvim_command("autocmd VimResized * wincmd =")
+]]
+
+-- Create directories when saving files
+api.nvim_create_autocmd("BufWritePre", {
+  group = augroup,
+  callback = function()
+    local dir = vim.fn.expand('<afile>:p:h')
+    if vim.fn.isdirectory(dir) == 0 then
+      vim.fn.mkdir(dir, 'p')
+    end
+  end,
+})
+
 
 -- show cursor line only in active window
 local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
 api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
-	pattern = "*",
-	command = "set cursorline",
-	group = cursorGrp,
+  pattern = "*",
+  command = "set cursorline",
+  group = cursorGrp,
 })
 api.nvim_create_autocmd(
-	{ "InsertEnter", "WinLeave" },
-	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
+  { "InsertEnter", "WinLeave" },
+  { pattern = "*", command = "set nocursorline", group = cursorGrp }
 )
 
 -- Enable spell checking for certain file types
 api.nvim_create_autocmd(
-	{ "BufRead", "BufNewFile" },
-	-- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
-	{
-		pattern = { "*.txt", "*.md", "*.tex" },
-		callback = function()
-			vim.opt.spell = true
-			vim.opt.spelllang = "en"
-		end,
-	}
+  { "BufRead", "BufNewFile" },
+  -- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
+  {
+    pattern = { "*.txt", "*.md", "*.tex" },
+    callback = function()
+      vim.opt.spell = true
+      vim.opt.spelllang = "en"
+    end,
+  }
 )
--- resize neovim split when terminal is resized
---[[
-vim.api.nvim_command("autocmd VimResized * wincmd =")
-]]
 
 -- fix terraform and hcl comment string
 --[[
@@ -76,39 +137,39 @@ vim.api.nvim_create_autocmd("FileType", {
 ]]
 
 api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
-	callback = function(event)
-		local map = function(keys, func, desc)
-			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-		end
+  group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+  callback = function(event)
+    local map = function(keys, func, desc)
+      vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+    end
 
-		-- Core navigation
-		map("gd", vim.lsp.buf.definition, "Goto Definition")
-		map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-		map("<leader>D", vim.lsp.buf.type_definition, "Go to type definition")
-		map("gi", vim.lsp.buf.implementation, "Goto Implementation")
-		map("gr", vim.lsp.buf.references, "Goto References")
-		map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
-		-- Documentation
-		map("K", vim.lsp.buf.hover, "Hover Documentation")
-		map("<leader>ls", vim.lsp.buf.signature_help, "Display Signature Information")
-		-- Refactoring / Editing
-		map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
-		map("<leader>ff", vim.lsp.buf.format, "Format Document")
-		map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-		-- map("<leader>cl", vim.lsp.buf.range_code_action,"Range Code Actions" )
-		-- working directory
-		map("<leader>wa", vim.lsp.buf.add_workspace_folder, "Add workspace folder")
-		map("<leader>wr", vim.lsp.buf.remove_workspace_folder, "Remove workspace folder")
-		map("<leader>wl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, "List workspace folders")
-		-- Diagnostics
-		map("df", vim.diagnostic.open_float, "Open Diagnostic Float")
-		-- map("[d", vim.diagnostic.goto_prev, "Prev Diagnostic")
-		-- map("]d", vim.diagnostic.goto_next, "Next Diagnostic")
+    -- Core navigation
+    map("gd", vim.lsp.buf.definition, "Goto Definition")
+    map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+    map("<leader>D", vim.lsp.buf.type_definition, "Go to type definition")
+    map("gi", vim.lsp.buf.implementation, "Goto Implementation")
+    map("gr", vim.lsp.buf.references, "Goto References")
+    map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+    -- Information
+    map("K", vim.lsp.buf.hover, "Hover Documentation")
+    map("<leader>ls", vim.lsp.buf.signature_help, "Display Signature Information")
+    -- Code actions
+    map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
+    map("<leader>ff", vim.lsp.buf.format, "Format Document")
+    map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
+    -- map("<leader>cl", vim.lsp.buf.range_code_action,"Range Code Actions" )
+    -- working directory
+    map("<leader>wa", vim.lsp.buf.add_workspace_folder, "Add workspace folder")
+    map("<leader>wr", vim.lsp.buf.remove_workspace_folder, "Remove workspace folder")
+    map("<leader>wl", function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, "List workspace folders")
+    -- Diagnostics
+    map("df", vim.diagnostic.open_float, "Open Diagnostic Float")
+    -- map("[d", vim.diagnostic.goto_prev, "Prev Diagnostic")
+    -- map("]d", vim.diagnostic.goto_next, "Next Diagnostic")
 
-		--[[
+    --[[
     local function client_supports_method(client, method, bufnr)
       if vim.fn.has 'nvim-0.11' == 1 then
         return client:supports_method(method, bufnr)
@@ -148,5 +209,5 @@ api.nvim_create_autocmd("LspAttach", {
       end, '[T]oggle Inlay [H]ints')
     end
     ]]
-	end,
+  end,
 })
