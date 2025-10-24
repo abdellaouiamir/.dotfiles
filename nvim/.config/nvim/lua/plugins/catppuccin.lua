@@ -11,8 +11,8 @@ return {
         highlight_overrides = {
           all = function ()
             return {
-              LineNr = { fg = "#fab387" },
-              CursorLineNr = { fg = "#f9e2af", bold=true },
+              -- LineNr = { fg = "#fab387" },
+              -- CursorLineNr = { fg = "#f9e2af", bold=true },
             }
           end
         }

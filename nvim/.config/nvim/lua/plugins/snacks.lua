@@ -28,7 +28,10 @@ return {
 		picker = {
       enabled = true,
       sources = {
-        explorer = { hidden = true },
+        explorer = {
+          hidden = true,
+          auto_close = true
+        },
         files = { hidden = true },
         grep = { hidden = true },
       },
@@ -46,16 +49,16 @@ return {
     { "<leader>sf",function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer", },
     -- Git
-    { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
+    { "<leader>gB", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
     { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
     { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
     { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
     { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
-    { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
+    { "<leader>go", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
     { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
     { "<leader>lg",function() Snacks.lazygit() end, desc = "Lazygit", },
-    { "<leader>gi", function() Snacks.git.blame_line() end, desc = "git blame", },
-    { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
+    { "<leader>gb", function() Snacks.git.blame_line() end, desc = "git blame", },
+    { "<leader>gg", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
     -- Find
     { "<C-p>", function() Snacks.picker.pick("files") end, desc = "Find Files", },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent Files", },
@@ -72,7 +75,7 @@ return {
     { "<leader>bc", function() Snacks.bufdelete.all() end, desc = "Delete all Buffers" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     -- file
-    { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
+    { "<leader>rN", function() Snacks.rename.rename_file() end, desc = "Rename File" },
     { "<leader><leader>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
     -- Zen
     -- { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
@@ -81,14 +84,19 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "VeryLazy",
       callback = function()
+        --[[
         -- Setup some globals for debugging (lazy-loaded)
-        -- _G.dd = function(...)
-          -- Snacks.debug.inspect(...)
-        -- end
-        -- _G.bt = function()
-          -- Snacks.debug.backtrace()
-        -- end
-        -- vim.print = _G.dd -- Override print to use snacks for `:=` command
+        _G.dd = function(...)
+          Snacks.debug.inspect(...)
+        end
+        _G.bt = function()
+          Snacks.debug.backtrace()
+        end
+        -- Override print to use snacks for `:=` command
+        vim.print = function (_, ...)
+          dd(...)
+        end
+        ]]
 
         -- Create some toggle mappings
         -- Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")

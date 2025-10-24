@@ -1,33 +1,83 @@
-vim.opt.nu = true -- Enable line number
-vim.opt.relativenumber = true -- Enable relative line number
-vim.opt.cursorline = true -- Enable the cursorline to be highligh it
-vim.opt.cursorlineopt = "number" -- highligh only the current line number
+-- Basic settings
+vim.opt.number = true                              -- Line numbers
+vim.opt.relativenumber = true                      -- Relative line numbers
+vim.opt.cursorline = true                          -- Highlight current line
+vim.opt.wrap = false                               -- Don't wrap lines
+vim.opt.scrolloff = 8                              -- Keep 10 lines above/below cursor 
+vim.opt.sidescrolloff = 6                          -- Keep 8 columns left/right of cursor
+-- vim.opt.cursorlineopt = "number"                   -- highligh only the current line number
+vim.opt.guicursor = ""                             -- Enable legacy vim cursor
 
-vim.opt.tabstop = 2                 -- Set tab width to 2 spaces
-vim.opt.softtabstop = 2             -- When hitting tab in insert mode, insert 2 spaces
-vim.opt.shiftwidth = 2              -- When auto-indenting, use 2 spaces
-vim.opt.expandtab = true            -- Convert tabs into spaces
+-- Indentation
+vim.opt.tabstop = 2                                -- Tab width
+vim.opt.shiftwidth = 2                             -- Indent width
+vim.opt.softtabstop = 2                            -- Soft tab stop
+vim.opt.expandtab = true                           -- Use spaces instead of tabs
+vim.opt.smartindent = true                         -- Smart auto-indenting
+vim.opt.autoindent = true                          -- Copy indent from current line
 
-vim.opt.guicursor = "" -- Enable legacy vim cursor
 
-vim.opt.smartindent = true -- Vim be smart about my indent
+-- Search settings
+vim.opt.ignorecase = true                          -- Case insensitive search
+vim.opt.smartcase = true                           -- Case sensitive if uppercase in search
+vim.opt.hlsearch = false                           -- Don't highlight search results 
+vim.opt.incsearch = true                           -- Show matches as you type
 
-vim.opt.wrap = false -- Disable line wrap, when the line is longer than the current screen it wont go back to the begining
+-- Visual settings
+vim.opt.termguicolors = true                       -- Enable 24-bit colors
+vim.opt.signcolumn = "yes"                         -- Always show sign column
+vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
+-- vim.opt.showmatch = true                           -- Highlight matching brackets
+-- vim.opt.matchtime = 2                              -- How long to show matching bracket
+-- vim.opt.cmdheight = 1                              -- Command line height
+-- vim.opt.completeopt = "menuone,noinsert,noselect"  -- Completion options 
+-- vim.opt.showmode = false                           -- Don't show mode in command line 
+-- vim.opt.pumheight = 10                             -- Popup menu height 
+-- vim.opt.pumblend = 10                              -- Popup menu transparency 
+-- vim.opt.winblend = 0                               -- Floating window transparency 
+-- vim.opt.conceallevel = 0                           -- Don't hide markup 
+-- vim.opt.concealcursor = ""                         -- Don't hide cursor line markup 
+-- vim.opt.lazyredraw = true                          -- Don't redraw during macros
+-- vim.opt.synmaxcol = 300                            -- Syntax highlighting limit
+vim.opt.winborder = 'rounded'                         -- Set the default border for all floating windows
 
-vim.opt.swapfile = false -- Disable Neovim swap file
-vim.opt.backup = false -- Disable Neovim backup file
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Location where nvim save the undo changes of the file
-vim.opt.undofile = true -- Persistance of undo changes when u close neovim
 
-vim.opt.hlsearch = false -- Disable search highlight after searching
-vim.opt.incsearch = true -- Enable incremental search (shows matches as you type) 
 
-vim.opt.termguicolors = true -- Enable full 24-bit RGB color support
+-- File handling
+vim.opt.backup = false                             -- Don't create backup files
+vim.opt.writebackup = false                        -- Don't create backup before writing
+vim.opt.swapfile = false                           -- Don't create swap files
+vim.opt.undofile = true                            -- Persistent undo
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Undo directory
+vim.opt.updatetime = 50                            -- Faster completion
+-- vim.opt.timeoutlen = 500                           -- Key timeout duration
+-- vim.opt.ttimeoutlen = 0                            -- Key code timeout
+vim.opt.autoread = true                            -- Auto reload files changed outside vim
+vim.opt.autowrite = false                          -- Don't auto save
 
-vim.opt.scrolloff = 8 -- Keep at least 8 lines of context above/below the cursor
-vim.opt.signcolumn = "yes"
+
+-- Behavior settings
+--  vim.opt.hidden = true                              -- Allow hidden buffers
+vim.opt.errorbells = false                         -- No error bells
+--  vim.opt.backspace = "indent,eol,start"             -- Better backspace behavior
+--  vim.opt.autochdir = false                          -- Don't auto change directory
+--  vim.opt.iskeyword:append("-")                      -- Treat dash as part of word
+--  vim.opt.path:append("**")                          -- include subdirectories in search
+--  vim.opt.selection = "exclusive"                    -- Selection behavior
+--  vim.opt.mouse = "a"                                -- Enable mouse support
+--  vim.opt.clipboard:append("unnamedplus")            -- Use system clipboard
+--  vim.opt.modifiable = true                          -- Allow buffer modifications
+vim.opt.encoding = "UTF-8"                         -- Set encoding
+
+-- Folding settings
+-- vim.opt.foldmethod = "expr"                             -- Use expression for folding
+-- vim.wo.vim.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for folding
+-- vim.opt.foldlevel = 99                                  -- Start with all folds open
+
+-- Split behavior
+-- vim.opt.splitbelow = true                          -- Horizontal splits go below
+-- vim.opt.splitright = true                          -- Vertical splits go right
+
+
 vim.opt.isfname:append("@-@") -- Allow filenames with '@' symbol
-
-vim.opt.updatetime = 50
-
-vim.opt.colorcolumn = "80" -- Show a vertical line at column 100
+-- :set splitbelow?  to see the current value
