@@ -1,0 +1,8 @@
+{
+  "foo-react": {
+    "prefix": "foo-react",
+    "body": [
+      "let ${1:foo} = ${2:bar}"
+    ]
+  }
+}
