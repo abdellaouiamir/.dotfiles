@@ -1,7 +1,13 @@
 return {
 	"folke/snacks.nvim",
 	dependencies = {
-		"echasnovski/mini.icons",
+    {
+      "echasnovski/mini.icons",
+      version = "*",
+      config = function ()
+        require("mini.icons").setup()
+      end
+    },
 	},
 	priority = 1000,
 	lazy = false,
@@ -22,29 +28,59 @@ return {
         ]],
 			},
 		},
-		indent = { enabled = true },
-		input = { enabled = true },
-		git = { enabled = true },
-		picker = {
+    indent = { enabled = true },
+    input = { enabled = true },
+    git = { enabled = true },
+    picker = {
       enabled = true,
       sources = {
         explorer = {
-          hidden = true,
+          hidden = true, -- press shift+h / press i/ press shift+i
+          follow = true,
           auto_close = true
         },
         files = { hidden = true },
-        grep = { hidden = true },
+        grep = { hidden = true }
       },
     },
-		notifier = { enabled = true },
-		quickfile = { enabled = true },
-		scroll = { enabled = false },
-		scope = { enabled = false },
-		statuscolumn = { enabled = false },
-		words = { enabled = true },
-		dim = { enabled = true },
-	},
-	keys = {
+    notifier = { enabled = true },
+    quickfile = { enabled = true },
+    scroll = {
+      enabled = true,
+      animate = {
+        duration = { step = 8, total = 150 },
+        easing = "linear",
+      },
+      -- faster animation when repeating scroll after delay
+      animate_repeat = {
+        delay = 100, -- delay in ms before using the repeat animation
+        duration = { step = 3, total = 40 },
+        easing = "linear",
+      },
+      -- what buffers to animate
+      filter = function(buf)
+        return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= "terminal"
+      end,
+    },
+    scope = { enabled = false },
+    statuscolumn = {
+      enabled = true,
+      left = { "mark", "sign" }, -- priority of signs on the left (high to low)
+      right = { "fold", "git" }, -- priority of signs on the right (high to low)
+      folds = {
+        open = false, -- show open fold icons
+        git_hl = false, -- use Git Signs hl for fold icons
+      },
+      git = {
+        -- patterns to match Git signs
+        patterns = { "GitSign", "MiniDiffSign" },
+      },
+      refresh = 50, -- refresh at most every 50ms 
+    },
+    words = { enabled = true },
+    dim = { enabled = true },
+  },
+  keys = {
     -- scratch
     { "<leader>sf",function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer", },
@@ -73,6 +109,7 @@ return {
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     -- Buffer
     { "<leader>bc", function() Snacks.bufdelete.all() end, desc = "Delete all Buffers" },
+    { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete all Buffers" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     -- file
     { "<leader>rN", function() Snacks.rename.rename_file() end, desc = "Rename File" },

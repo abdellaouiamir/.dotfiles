@@ -36,10 +36,6 @@ vim.diagnostic.config({
       [severity.WARN] = " 󰀪",
       [severity.INFO] = " 󰋽",
       [severity.HINT] = " 󰌶",
-    },
-    numhl = {
-      [severity.ERROR] = "ErrorMsg",
-      [severity.WARN] = "WarningMsg",
-    },
-  },
+    }
+  }
 })
