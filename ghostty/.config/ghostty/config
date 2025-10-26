@@ -43,7 +43,8 @@
 # resize-overlay-duration = 4s 200ms
 #
 #theme = tokyonight
-theme = catppuccin-mocha
+# ghostty +list-themes // command to list all ghosstty built-in themes
+theme = Catppuccin Mocha
 font-family = JetBrainsMono Nerd Font Mono
 # font-family = CaskaydiaMono Nerd Font
 font-size = 16
