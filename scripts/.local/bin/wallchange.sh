@@ -11,9 +11,19 @@ update(){
 }
 random(){
   WALLPAPER_DIR="$HOME/wallpapers/"
-  WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
-  cp $WALLPAPER $BACKGROUND
-  update
+  count=0
+  while [[ $count -lt 3 ]]; do
+    ((count++))
+    WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
+    if checkWalpaper $WALLPAPER; then 
+      cp "$WALLPAPER" "$BACKGROUND"
+      update
+      exit 0 
+    else
+      echo "Invalid wallpaper: $WALLPAPER"
+      exit 1
+    fi
+  done
 }
 stable(){
   if systemctl --user is-active wallpaper.timer &>/dev/null;then
@@ -21,6 +31,13 @@ stable(){
   else
     systemctl --user start wallpaper.timer &>/dev/null
   fi
+}
+checkWalpaper(){
+  if ! echo $1 | grep -qE ".*\.(jpg|png)$";then
+    echo "not supported wallpaper format"
+    return 1
+  fi
+  return 0
 }
 help(){
 cat <<EOF
@@ -39,8 +56,11 @@ while [ $# -gt 0 ]; do
         echo "missing wallpaper path"
         exit 1
       fi
+      if ! checkWalpaper $2;then
+        exit 1
+      fi
       random=1
-      cp ${2} $BACKGROUND
+      cp "${2}" "$BACKGROUND"
       update
       shift 2
       ;;

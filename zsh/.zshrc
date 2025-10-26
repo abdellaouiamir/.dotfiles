@@ -83,3 +83,11 @@ eval "$(starship init zsh)"
 # Add local script the path variable
 export PATH="$HOME/.go/bin:$HOME/.local/bin:$PATH"
 #export GOPATH="$HOME/tmux/go"
+
+#mind blowing function
+weee() {
+  curl http://wttr.in/$1
+}
+dict() {
+  curl "dict://dict.org/d:$1"
+}
