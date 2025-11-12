@@ -54,12 +54,15 @@ eval "$(fzf --zsh)"
 #export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
+#Bat theme
+export BAT_THEME="Catppuccin Mocha"
+
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:(nvim|vim):*' fzf-preview '[[ -f $realpath ]] && bat $realpath'
+zstyle ':fzf-tab:complete:(nvim|vim):*' fzf-preview '[[ -f $realpath ]] && bat --theme $BAT_THEME $realpath'
 
 # Keybindings
 bindkey -v
