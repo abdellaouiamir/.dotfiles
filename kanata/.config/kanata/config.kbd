@@ -8,7 +8,14 @@
 )
 
 (defalias
-  cec (tap-hold 200 200 esc lctl)
+  cea (tap-hold 200 200 a lctl)
+  ces (tap-hold 200 200 s lalt)
+  ced (tap-hold 200 200 d lmet)
+  cef (tap-hold 200 200 f lsft)
+  cej (tap-hold 200 200 j rsft)
+  cek (tap-hold 200 200 k rmet)
+  cel (tap-hold 200 200 l ralt)
+  cec (tap-hold 200 200 ; rctl)
   sym (tap-hold 200 200 lalt (layer-toggle symbols))
 )
 
@@ -16,9 +23,9 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
-  @cec a    s    d    f    g    h    j    k    l    ;    '    \ 
+  esc  @cea @ces @ced @cef g    h    @cej @cek @cel @cec '    \ 
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  caps lmet @sym           spc            lalt rmet rctl
+  caps lmet @sym           spc            @sym rmet rctl
 )
 
 (deflayer symbols
