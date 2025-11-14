@@ -8,30 +8,40 @@
 )
 
 (defalias
-  cea (tap-hold 200 200 a lctl)
-  ces (tap-hold 200 200 s lalt)
-  ced (tap-hold 200 200 d lmet)
-  cef (tap-hold 200 200 f lsft)
-  cej (tap-hold 200 200 j rsft)
-  cek (tap-hold 200 200 k rmet)
-  cel (tap-hold 200 200 l ralt)
-  cec (tap-hold 200 200 ; rctl)
-  sym (tap-hold 200 200 lalt (layer-toggle symbols))
+  cea (tap-hold 150 200 a lalt)
+  ces (tap-hold 150 200 s lsft)
+  ced (tap-hold 150 200 d lctl)
+  cef (tap-hold 150 200 f lmet)
+  cej (tap-hold 150 200 j rmet)
+  cek (tap-hold 150 200 k rctl)
+  cel (tap-hold 150 200 l rsft)
+  cec (tap-hold 150 200 ; ralt)
+  sym (layer-while-held symbols)
+  syn (layer-while-held arrowKey)
 )
 
 (deflayer default
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  tab  q    w    e    r    t    y    u    i    o    p    bspc ]    ret
   esc  @cea @ces @ced @cef g    h    @cej @cek @cel @cec '    \ 
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  caps lmet @sym           spc            @sym rmet rctl
+  -    z    x    c    v    b    n    m    ,    .    /    =
+  lctl caps @syn           spc            @sym rmet rctl
 )
 
 (deflayer symbols
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    [    S-[  S-9  S-=  S--  =    -    S-0  S-]  ]    _    _    _
+  _    1    2    3    4    5    6    7    8    9    0    _    _    _
+  _    [    S-[  S-9  S--  S-\  \    S-=  S-0  S-]  ]    _    _
+  _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  grv  S-grv _
+  _    _    _              _              _    _    _
+)
+
+(deflayer arrowKey
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    del  _    _    left down up   rght _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
