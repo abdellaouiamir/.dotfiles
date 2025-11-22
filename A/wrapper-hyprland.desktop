@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Hyprland-wrapper
+Comment=An intelligent dynamic tiling Wayland compositor
+Exec=/usr/bin/zsh -l -c Hyprland
+Type=Application
+DesktopNames=HyprlandWrapper
+Keywords=tiling;wayland;compositor;
