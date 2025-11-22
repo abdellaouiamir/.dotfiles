@@ -11,7 +11,6 @@ vim.lsp.config('*', {
 -- Mason PATH is handled by core.mason-path
 vim.lsp.enable({
   "lua_ls",
-  "gopls",
   "ts_ls",
   "pylsp",
   "clangd",

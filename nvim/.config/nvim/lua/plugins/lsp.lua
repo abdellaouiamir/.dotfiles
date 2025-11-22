@@ -19,7 +19,6 @@ return {
       ensure_installed = {
         "lua_ls", -- lua language server
         "ts_ls", -- ts/js language server
-        "gopls", -- go language server
         "pylsp", -- python language server
         "clangd", -- C/C++ language server
       },

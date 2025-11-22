@@ -1,0 +1,38 @@
+dnf install gnome-tweaks
+dnf install fastfetch neovim zsh fzf git stow
+dnf install bat btop
+
+#config
+stow dunst fastfetch ghostty git hyprland kanata kitty nvim rofi starship systemdUser tmux waybar zsh 
+stow scripts
+
+#font
+dnf search fonts | grep jetbrains
+sudo dnf install jetbrains-mono-fonts-all
+unzip telac-circle-dark.zip
+sudo mv jetbrain /usr/share/icons/
+unzip jetbrain.zip
+sudo mv jetbrain /usr/share/fonts/
+fc-cache -fv
+fc-list : family
+fc-cache -fv
+
+#terminal
+sudo dnf copr enable atim/starship
+sudo dnf install starship
+sudo dnf install kitty
+dnf copr enable scottames/ghostty
+dnf install ghostty
+
+
+#hyprland
+dnf copr enable solopasha/hyprland
+sudo dnf install hyprland hypridle hyprpaper hyprlock hyprsunset hyprshot hyprpicker xdg-desktop-portal-hyprland
+dnf remove wofi
+dnf install waybar
+dnf install rofi # rofi-wayland merged to rofi
+dnf install dunst
+
+#theme
+sudo dnf copr enable peterwu/rendezvous
+sudo dnf install bibata-cursor-themes

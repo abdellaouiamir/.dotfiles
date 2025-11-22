@@ -1,9 +1,0 @@
-[Nemo Action]
-Active=true
-Name=Set as wallpaper
-Comment=Set current image as wallpaper
-Exec=/home/amir/.local/bin/wallchange.sh -s %F
-Icon-Name=image
-Selection=single
-Mimetypes=image/*
-Quote=double

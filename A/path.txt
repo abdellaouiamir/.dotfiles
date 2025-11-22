@@ -1,1 +1,2 @@
-/usr/share/wayland-sessions
+/usr/share/wayland-sessions/wayland-wrapper.txt
+/etc/systemd/system/kanata.service

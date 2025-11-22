@@ -84,8 +84,6 @@
       }
     },
 
-
-
     //==> Middle Modules
     ///////////////////////////////////////////////////////////////
     "custom/cpu": {
@@ -101,15 +99,6 @@
       "exec": "/home/amir/.local/bin/waybar_bin/system-info.py --ram --normal-color \"#fab387\" --critical-color \"#f38ba8\" | cat",
       "return-type": "json",
       "format": "{}  ",
-      "rotate": 0,
-      "interval": 2,
-      "tooltip": true
-    },
-    "custom/gpu": {
-      "exec": "/home/amir/.local/bin/waybar_bin/system-info.py --gpu --normal-color \"#f5e0dc\" --critical-color \"#f38ba8\" | cat",
-      "on-click": "python ~/bin/system-info.py --gpu --click",
-      "return-type": "json",
-      "format": "{}",
       "rotate": 0,
       "interval": 2,
       "tooltip": true
@@ -200,15 +189,6 @@
       "min-length": 2,
       "tooltip": false
     },
-    "custom/system-update": {
-      "exec": "/home/amir/.local/bin/waybar_bin/system-update.sh --status --unupdated-color \"#fab387\" --updated-color \"#a6e3a1\" | cat",
-      "return-type": "raw",
-      "format": "{} ",
-      "rotate": 0,
-      "on-click": "CHECKUPDATES_DB=\"/tmp/checkup-db-${UID}-$$\" sh ~/bin/system-update.sh",
-      "interval": 86400,
-      "tooltip": false
-    },
     "custom/do-not-disturb": {
       "exec": "/home/amir/.local/bin/waybar_bin/do-not-disturb.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
       "return-type": "raw",
@@ -217,16 +197,6 @@
       "rotate": 0,
       "on-click": "/home/amir/.local/bin/waybar_bin/do-not-disturb.sh",
       "tooltip": false
-    },
-    "custom/vpn": {
-        //"exec": "sh ~/bin/rofi-menus/vpn-manager.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
-        "exec": "echo \"<span color=\"#a6e3a1\">󰯄</span>\"",
-        "return-type": "raw",
-        "format": "{} ",
-        "interval": 3,
-        "rotate": 0,
-        //"on-click": "sh ~/bin/rofi-menus/vpn-manager.sh",
-        "tooltip": false
     },
     "custom/bluetooth": {
       "format": "<span color=\"#89b4fa\">󰂯  </span>",

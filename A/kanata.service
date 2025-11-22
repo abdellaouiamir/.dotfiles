@@ -1,0 +1,17 @@
+[Unit]
+Description=Kanata Keyboard Remapping Service
+Documentation=https://github.com/jtroo/kanata
+Requires=local-fs.target
+After=local-fs.target systemd-udevd.service
+Wants=systemd-udevd-settle.service
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/modprobe uinput
+ExecStart=/home/amir/.local/bin/kanata -q --cfg /home/amir/.config/kanata/config.kbd
+Restart=on-failure
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
