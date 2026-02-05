@@ -1,3 +1,9 @@
+#|
+(defcfg
+  process-unmapped-keys yes ;; process unmapped keys
+  allow-cmd yes ;; allow kanata to run commands
+)
+|#
 (defsrc
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
@@ -7,15 +13,19 @@
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
+;;tap-hold
+;;tap-hold-press
+;;tap-hold-release
+
 (defalias
-  cea (tap-hold 150 200 a lalt)
-  ces (tap-hold 150 200 s lctl)
-  ced (tap-hold 150 200 d lsft)
-  cef (tap-hold 150 200 f lmet)
-  cej (tap-hold 150 200 j rmet)
-  cek (tap-hold 150 200 k rsft)
-  cel (tap-hold 150 200 l rctl)
-  cec (tap-hold 150 200 ; ralt)
+  cea (tap-hold-release 150 200 a lalt)
+  ces (tap-hold-release 150 200 s lctl)
+  ced (tap-hold-release 150 200 d lsft)
+  cef (tap-hold-release 150 200 f lmet)
+  cej (tap-hold-release 150 200 j rmet)
+  cek (tap-hold-release 150 200 k rsft)
+  cel (tap-hold-release 150 200 l rctl)
+  cec (tap-hold-release 150 200 ; ralt)
   sym (layer-while-held symbols)
   syn (layer-while-held arrowKey)
 )
@@ -32,9 +42,9 @@
 (deflayer symbols
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    1    2    3    4    5    6    7    8    9    0    _    _    _
+  _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  grv  S-grv _   _    _
   caps [    S-[  S-9  S--  S-\  \    S-=  S-0  S-]  ]    _    _
-  _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  grv  S-grv _
+  _    1    2    3    4    5    6    7    8    9    0    _
   _    _    _              _              _    _    _
 )
 
