@@ -15,14 +15,43 @@ noctalia-shell
 power-profiles-daemon #systemctl enable --now pro....service
 sudo zypper install switcheroo-control
 
+#opensuse tumblweed driver and gaming boost
+zypper install scx | /etc/default/scx
+SCX_SCHEDULER=scx_lavd
+SCX_FLAGS='--performance'
+systemctl enable --now scx
+sudo zypper install ntsync-autoload  | ls -l /dev/ntsync | lsmod | grep ntsync
+zypper install openSUSE-repos-Tumbleweed-NVIDIA
+zypper in nvidia-open-driver-G07-signed-kmp-meta
+
+#codec
+#opensuse packman
+ffmpeg
+gstreamer-plugins-good
+gstreamer-plugins-bad
+gstreamer-plugins-ugly
+gstreamer-plugins-libav
+libavcodec
+vlc-codecs
+sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/Essentials/' packman-essentials
+sudo zypper refresh
+sudo zypper install --allow-vendor-change --from packman-essentials ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec vlc-codecs
+
+
+#gnome
 gnome extention manager | gnome-extensions (package name)
 gnome tweaks | gnome-tweaks
-
 
 flatpak
 keepassXc
 brave
 discord
+
+#gaming
+heroic launcher
+faugus lanncher
+protonplus
+goverlay
 
 
 #stow
