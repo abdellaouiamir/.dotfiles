@@ -255,10 +255,10 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Noctalia (default)",
+        "predefinedScheme": "Tokyo Night",
         "schedulingMode": "off",
         "syncGsettings": true,
-        "useWallpaperColors": true
+        "useWallpaperColors": false
     },
     "controlCenter": {
         "cards": [
@@ -366,7 +366,6 @@
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
         "animationSpeed": 1,
-        "autoNetworkEnabled": true,
         "autoStartAuth": false,
         "avatarImage": "/home/k1ng/.face",
         "boxRadiusRatio": 1,
@@ -635,10 +634,6 @@
     },
     "templates": {
         "activeTemplates": [
-            {
-                "enabled": true,
-                "id": "niri"
-            }
         ],
         "enableUserTheming": false
     },
@@ -697,7 +692,7 @@
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "",
+        "wallhavenQuery": "anime",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
