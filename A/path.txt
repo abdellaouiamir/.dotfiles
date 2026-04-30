@@ -1,2 +1,7 @@
 /usr/share/wayland-sessions/wayland-wrapper.txt
 /etc/systemd/system/kanata.service
+
+
+# see the running schedular
+/sys/kernel/sched_ext/state
+/sys/kernel/sched_ext/root/ops

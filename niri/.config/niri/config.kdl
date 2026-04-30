@@ -666,3 +666,14 @@ layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
 }
+
+cursor {
+    // Set the XCursor theme name
+    xcursor-theme "Bibata-Modern-Ice"
+
+    // Set the cursor size in logical pixels
+    xcursor-size 24
+}
+
+include "./noctalia.kdl"
+
