@@ -26,6 +26,11 @@ input {
     trackpoint 
 }
 
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 24
+}
+
 layout {
     // Set gaps around windows in logical pixels.
     gaps 16
@@ -49,24 +54,19 @@ layout {
     }
 
     default-column-width { proportion 0.5; }
+
     focus-ring {
-        off
-        width 4
-        //active-color "#7fc8ff"
-        //inactive-color "#505050"
+        on
+        width 3
     }
 
     border {
         // If you enable the border, you probably want to disable the focus ring.
         off
         width 4
-        //active-color "#ffc87f"
-        //inactive-color "#505050"
-        //urgent-color "#9b0000"
-
     }
 
-    shadow {
+    /-shadow {
         // Uncomment the next line to enable shadows.
         // on
         softness 30
@@ -84,46 +84,12 @@ hotkey-overlay
 
 // You can change the path where screenshots are saved.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
 // Animation settings.
-animations {
-    slowdown 1.0
-}
+animations
 
-
-// Window rules let you adjust behavior for individual windows.
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r"^org\.wezfurlong\.wezterm$"
-    default-column-width 
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r"firefox$" title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
-    match app-id=r"^org\.keepassxc\.KeePassXC$"
-    match app-id=r"^org\.gnome\.World\.Secrets$"
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -295,7 +261,15 @@ binds {
     Mod+Ctrl+9 { move-column-to-workspace 9; }
 
     // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
 
     // Switches focus between the current and the previous workspace.
     // Mod+Tab { focus-workspace-previous; }
@@ -407,37 +381,59 @@ binds {
     XF86AudioPrev allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous"; }
 }
 
+// Window rules let you adjust behavior for individual windows.
+
+window-rule {
+    match app-id=r"^org\.wezfurlong\.wezterm$"
+    default-column-width 
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r"firefox$" title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r"^org\.keepassxc\.KeePassXC$"
+    match app-id=r"^org\.gnome\.World\.Secrets$"
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
 ///////////////////////////////////////////////////////////////
 //noctalia Configs
 
+/* All Apps  */
 window-rule {
   // Rounded corners for a modern look.
   geometry-corner-radius 20
 
   // Clips window contents to the rounded corner boundaries.
   clip-to-geometry true
-}
 
-debug {
-  // Allows notification actions and window activation from Noctalia.
-  honor-xdg-activation-with-invalid-serial
-}
-
-// Set the overview wallpaper on the backdrop.
-layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
-}
-
-
-//noctalia blur config
-
-/* Apps: blur them all without xray for a better look */
-window-rule {
+  // blur them all without xray for a better look
+  opacity 0.8 
   background-effect {
     blur true
     xray false
     }
+  // fix blur settings
+  draw-border-with-background false
+}
+
+blur {
+  on
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
 }
 
 /* Noctalia: blur everywhere without xray for a better look */
@@ -448,19 +444,20 @@ layer-rule {
     }
 }
 
-blur {
-  passes 2        // more passes = stronger blur (default: 3)
-  offset 3.0      // sample distance per pass (default: 3.0)
-  noise 0.03      // grain overlay (default: 0.02)
-  saturation 1.0  // color saturation boost (default: 1.5)
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+include "./noctalia.kdl"
 ///////////////////////////////////////////////////////////////
 
-cursor {
-    xcursor-theme "Bibata-Modern-Ice"
-    xcursor-size 24
-}
 
 //nirimod
 environment
