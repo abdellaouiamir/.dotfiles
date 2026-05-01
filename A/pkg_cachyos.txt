@@ -1,0 +1,31 @@
+zsh
+tmux
+fzf
+stow
+git
+fastfetch
+starship
+keyd
+nvim
+
+kitty
+ghostty
+
+niri
+noctalia-shell
+wlsunset
+
+#flatpak
+discord
+brave
+keepasxc
+
+#aur
+paru -S nirimod
+
+
+
+#config
+stow fastfetch ghostty git kitty niri ssh starship tmux zsh
+stow noctalia
+keyd
