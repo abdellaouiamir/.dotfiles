@@ -9,6 +9,6 @@ killall xdg-desktop-portal
 sleep 1
 
 libDir=/usr/lib
-$libDir/xdg-desktop-portal-hyprland &
+$libDir/xdg-desktop-portal-gnome &
 sleep 2
 $libDir/xdg-desktop-portal &
