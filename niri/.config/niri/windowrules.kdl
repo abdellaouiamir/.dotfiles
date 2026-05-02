@@ -1,0 +1,41 @@
+// Window rules
+window-rule {
+    match app-id=r"^org\.wezfurlong\.wezterm$"
+    default-column-width 
+}
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r"firefox$" title="^Picture-in-Picture$"
+    open-floating true
+}
+window-rule {
+    match app-id=r"^org\.keepassxc\.KeePassXC$"
+    match app-id=r"^org\.gnome\.World\.Secrets$"
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+/* All Apps  */
+window-rule {
+  // Rounded corners for a modern look.
+  geometry-corner-radius 20
+  // Clips window contents to the rounded corner boundaries.
+  clip-to-geometry true
+  // blur them all without xray for a better look
+  opacity 0.9 
+  background-effect {
+    blur true
+    xray false
+    }
+  // fix blur settings
+  draw-border-with-background false
+}
+blur {
+  on
+  passes 2        // more passes = stronger blur (default: 3) //2
+  offset 3.0      // sample distance per pass (default: 3.0) //3.0
+  noise 0.03      // grain overlay (default: 0.02) //0.03
+  saturation 1.0  // color saturation boost (default: 1.5) //1.0
+}
