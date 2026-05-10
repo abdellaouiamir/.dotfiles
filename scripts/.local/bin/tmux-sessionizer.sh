@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  types=$(find ~/tmux/ -mindepth 1 -maxdepth 1 -type d)
+  types=$(find ~/Projects/ -mindepth 1 -maxdepth 1 -type d)
   selected=$(find $types -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 # no option selected

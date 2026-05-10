@@ -293,4 +293,9 @@ binds {
     Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
     //Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "command"; }
+
+
+    //custom scripts
+    Mod+A { spawn "kitty" "-e" "tmux-sessionizer.sh" ; }
+    //Mod+A { spawn "ghostty" "-e" "/home/k1ng/.local/bin/tmux-sessionizer.sh" ; }
 }
