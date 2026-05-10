@@ -287,4 +287,10 @@ binds {
     XF86AudioStop allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "pause"; }
     XF86AudioNext allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "next"; }
     XF86AudioPrev allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous"; }
+
+
+    //clipboard and emoji
+    Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+    //Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "command"; }
 }

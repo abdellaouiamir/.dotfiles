@@ -11,7 +11,7 @@ return {
 				-- null_ls.builtins.formatting.prettier, -- install prettier with mason
 			},
 			on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
+				if client:supports_method("textDocument/formatting") then
 					-- Clear existing autocmds to avoid duplicates
 					vim.api.nvim_clear_autocmds({
 						group = augroup,

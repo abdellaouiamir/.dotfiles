@@ -18,7 +18,7 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls", -- lua language server
-        "ts_ls", -- ts/js language server
+        "vtsls", -- ts/js language server
         "pylsp", -- python language server
         "clangd", -- C/C++ language server
       },

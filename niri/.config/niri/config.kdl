@@ -1,4 +1,17 @@
 // "/-" comments out the following node.
+//Start Up Apps
+spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "cliphist" "wipe"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+environment {
+    //QT_QPA_PLATFORMTHEME "qt6ct"
+}
+animations
+hotkey-overlay 
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path null //You can also set this to null to disable saving screenshots to disk.
+
 input {
     focus-follows-mouse max-scroll-amount="33%"
     keyboard {
@@ -62,36 +75,9 @@ layout {
     struts 
 }
 
-spawn-at-startup "qs" "-c" "noctalia-shell"
-environment
-animations
-hotkey-overlay 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-// screenshot-path null //You can also set this to null to disable saving screenshots to disk.
-
-// noctalia
-/* Noctalia: blur everywhere without xray for a better look */
-layer-rule {
-  match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
-  background-effect {
-    xray false
-    }
-}
-
-// Set the overview wallpaper on the backdrop.
-layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
-}
-
-debug {
-  // Allows notification actions and window activation from Noctalia.
-  honor-xdg-activation-with-invalid-serial
-}
-// end noctalia
-
 // my imports
 include "./keybindings.kdl"
 include "./windowrules.kdl"
 include "./monitors.kdl"
+include "./custom-noctalia-shell.kdl"
 include "./noctalia.kdl"
