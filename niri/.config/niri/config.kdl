@@ -8,7 +8,10 @@ environment {
     //QT_QPA_PLATFORMTHEME "qt6ct"
 }
 animations
-hotkey-overlay 
+hotkey-overlay{
+    skip-at-startup
+}     
+prefer-no-csd // force remove the title bar
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // screenshot-path null //You can also set this to null to disable saving screenshots to disk.
 

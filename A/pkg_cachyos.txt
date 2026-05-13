@@ -7,8 +7,6 @@ fastfetch
 starship
 keyd
 nvim
-wl-clipboard
-cliphist
 
 kitty
 ghostty
@@ -16,20 +14,26 @@ ghostty
 niri
 noctalia-shell
 wlsunset
+ddcutil
+wl-clipboard
+cliphist
+power-profiles-daemon
 papirus-icon-theme
 ttf-jetbrains-mono-nerd
+
+discord
 
 #gnome
 extension-manager
 
 #flatpak
-discord
 brave
 keepasxc
 
 #aur
 paru -S nirimod
 bibata-cursor-theme-bin
+paru -S brave-origin-nightly-bin
 
 paru -S adw-gtk-theme nwg-look
 paru -S qt6ct
@@ -37,5 +41,5 @@ paru -S qt6ct
 
 #config
 stow fastfetch ghostty git kitty niri ssh starship tmux zsh
-stow noctalia
+stow noctalia nvim
 keyd

@@ -290,9 +290,14 @@ binds {
 
 
     //clipboard and emoji
-    Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+    //Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; } // native solution
     //Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "command"; }
+    Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+
+    //Plugins keybinds
+    Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipboard" "toggle"; }
+    Mod+Shift+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipboard" "wipe"; }
+    Mod+B { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
 
 
     //custom scripts
