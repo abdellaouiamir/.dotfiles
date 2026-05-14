@@ -21,20 +21,32 @@ power-profiles-daemon
 papirus-icon-theme
 ttf-jetbrains-mono-nerd
 
+#apps
 discord
+
+#gaming
+cachyos-gaming-meta
+steam
+heroic-games-launcher
+faugus-launcher
+protonplus
+
+#fix steam on niri
+xwayland-satellite
 
 #gnome
 extension-manager
 
 #flatpak
-brave
+vesktop
 keepasxc
 
 #aur
-paru -S nirimod
+nirimod
 bibata-cursor-theme-bin
-paru -S brave-origin-nightly-bin
+brave-origin-nightly-bin
 
+#theme
 paru -S adw-gtk-theme nwg-look
 paru -S qt6ct
 
