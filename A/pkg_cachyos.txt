@@ -11,6 +11,7 @@ nvim
 kitty
 ghostty
 
+#niri
 niri
 noctalia-shell
 wlsunset
@@ -20,26 +21,31 @@ cliphist
 power-profiles-daemon
 papirus-icon-theme
 ttf-jetbrains-mono-nerd
+xwayland-satellite //fix steam on niri
+
+#gnome
+extension-manager
 
 #apps
 discord
 
 #gaming
 cachyos-gaming-meta
+cachyos-gaming-applications
+protonplus // manage proton on any luncher
 steam
-heroic-games-launcher
 faugus-launcher
-protonplus
 
-#fix steam on niri
-xwayland-satellite
-
-#gnome
-extension-manager
+#virtualazation
+qemu-full // usermod -aG libvirt $USER // systemctl enable --now libvirtd.socket
+virt-manager
+sudo virsh net-list --all
+sudo virsh net-autostart default
+sudo virsh list
 
 #flatpak
-vesktop
 keepasxc
+flatseal
 
 #aur
 nirimod
