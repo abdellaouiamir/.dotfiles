@@ -61,3 +61,8 @@ paru -S qt6ct
 stow fastfetch ghostty git kitty niri ssh starship tmux zsh
 stow noctalia nvim
 keyd
+
+
+#programming
+nodejs-lts-krypton
+npm

@@ -1,10 +1,16 @@
 return {
   'saghen/blink.cmp',
-  version = '*',
+  version = "1.*",
   dependencies ={
     'rafamadriz/friendly-snippets',
     -- 'giuxtaposition/blink-cmp-copilot',
   },
+  --config = function ()
+  --  local capabilities = require('blink.cmp').get_lsp_capabilities()
+  --  vim.lsp.config('*', {
+  --    capabilities = capabilities,
+  --  })
+  --end,
   opts = {
     keymap = { preset = 'default' },
     appearance = {

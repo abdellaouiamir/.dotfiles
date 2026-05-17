@@ -5,6 +5,7 @@ local on_init = function(client, _)
   end
 end
 -- apply this configuration to all lsp servers
+-- checkhealth lsp
 vim.lsp.config('*', {
   on_init = on_init,
 })

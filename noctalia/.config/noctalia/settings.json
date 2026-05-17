@@ -562,7 +562,7 @@
         "notifyUpdates": true
     },
     "sessionMenu": {
-        "countdownDuration": 5000,
+        "countdownDuration": 3000,
         "enableCountdown": true,
         "largeButtonsLayout": "single-row",
         "largeButtonsStyle": true,
