@@ -1,0 +1,29 @@
+layout {
+    gaps 16
+    center-focused-column "never"
+    //background-color "transparent" // <- needed for noctalia-shell to set wallpaper
+    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    default-column-width { proportion 0.5; }
+    focus-ring {
+        on
+        width 3
+    }
+    border {
+        // If you enable the border, you probably want to disable the focus ring.
+        off
+        width 4
+    }
+    /-shadow {
+        // on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+    struts 
+}

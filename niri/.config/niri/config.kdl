@@ -1,86 +1,13 @@
 // "/-" comments out the following node.
-//Start Up Apps
-spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-at-startup "cliphist" "wipe"
-spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-environment {
-    //QT_QPA_PLATFORMTHEME "qt6ct"
-}
-animations
-hotkey-overlay{
-    skip-at-startup
-}     
-prefer-no-csd // force remove the title bar
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-// screenshot-path null //You can also set this to null to disable saving screenshots to disk.
-
-input {
-    focus-follows-mouse max-scroll-amount="33%"
-    keyboard {
-        xkb 
-        numlock
-    }
-    touchpad {
-        // off
-        tap
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
-        natural-scroll
-        // accel-speed 0.2
-        accel-profile "flat"
-        scroll-method "two-finger"
-        // disabled-on-external-mouse
-    }
-    mouse 
-    trackpoint 
-}
-
-cursor {
-    xcursor-theme "Bibata-Modern-Ice"
-    xcursor-size 24
-}
-
-layout {
-    gaps 16
-    // When to center a column when changing focus, options are:
-    // - "never", default behavior, focusing an off-screen column will keep at the left
-    //   or right edge of the screen.
-    // - "always", the focused column will always be centered.
-    // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
-    center-focused-column "never"
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-    }
-    default-column-width { proportion 0.5; }
-    focus-ring {
-        on
-        width 3
-    }
-    border {
-        // If you enable the border, you probably want to disable the focus ring.
-        off
-        width 4
-    }
-    /-shadow {
-        // on
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
-    }
-    struts 
-}
-
 // my imports
-include "./keybindings.kdl"
-include "./windowrules.kdl"
-include "./monitors.kdl"
-include "./custom-noctalia-shell.kdl"
+include "./cfg/animation.kdl"
+include "./cfg/autostart.kdl"
+include "./cfg/display.kdl"
+include "./cfg/input.kdl"
+include "./cfg/keybinds.kdl"
+include "./cfg/layout.kdl"
+include "./cfg/misc.kdl"
+include "./cfg/rules.kdl"
+include "./cfg/noctalia-shell.kdl"
+
 include "./noctalia.kdl"

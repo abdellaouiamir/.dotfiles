@@ -1,0 +1,30 @@
+// ────────────── Input Configuration ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+
+input {
+    keyboard {
+        xkb {
+          //layout "us"
+        }
+        numlock
+    }
+    touchpad {
+        // off
+        tap
+        // dwt
+        // dwtp
+        // drag false
+        // drag-lock
+        natural-scroll
+        accel-speed 0.2
+        //accel-profile "flat"
+        scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+    mouse {
+      accel-profile "flat"
+    }
+    trackpoint 
+    focus-follows-mouse max-scroll-amount="33%"
+    //workspace-auto-back-and-forth
+}

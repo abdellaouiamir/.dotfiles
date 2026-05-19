@@ -1,11 +1,8 @@
 // Window rules
 /* All Apps  */
 window-rule {
-  // Rounded corners for a modern look.
   geometry-corner-radius 20
-  // Clips window contents to the rounded corner boundaries.
   clip-to-geometry true
-  // blur them all without xray for a better look
   opacity 0.9 
   background-effect {
     blur true
@@ -14,6 +11,7 @@ window-rule {
   // fix blur settings
   draw-border-with-background false
 }
+
 blur {
   on
   passes 2        // more passes = stronger blur (default: 3) //2
@@ -21,12 +19,14 @@ blur {
   noise 0.03      // grain overlay (default: 0.02) //0.03
   saturation 1.0  // color saturation boost (default: 1.5) //1.0
 }
+
 //Custom App
 // niri msg focused-window
 // niri msg windows
 // /usr/share/applications # remode .desktop
 // flatpak list
-// ghostty
+
+// opacity
 window-rule {
     match app-id=r"^com\.mitchellh\.ghostty$"
     background-effect {
@@ -35,6 +35,7 @@ window-rule {
     }
     opacity 0.8
 }
+
 // no blur, no opacity
 window-rule {
     match app-id=r"^org\.gnome\.Showtime$"
@@ -44,14 +45,17 @@ window-rule {
     }
     opacity 1.0
 }
+
 window-rule {
     match app-id=r"^org\.wezfurlong\.wezterm$"
     default-column-width 
 }
+
 window-rule {
     match app-id=r"firefox$" title="^Picture-in-Picture$"
     open-floating true
 }
+
 window-rule {
     match app-id=r"^org\.keepassxc\.KeePassXC$"
     match app-id=r"^org\.gnome\.World\.Secrets$"

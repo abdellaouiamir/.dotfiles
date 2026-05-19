@@ -1,0 +1,22 @@
+prefer-no-csd // force remove the title bar
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path null //You can also set this to null to disable saving screenshots to disk.
+
+hotkey-overlay{
+  skip-at-startup
+}     
+
+environment {
+  //QT_QPA_PLATFORMTHEME "qt6ct"
+  //ELECTRON_OZONE_PLATFORM_HINT "auto"
+  //QT_QPA_PLATFORM "wayland"
+  //QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  //XDG_SESSION_TYPE "wayland"
+  //XDG_CURRENT_DESKTOP "niri"
+  //QT_QPA_PLATFORMTHEME "gtk3"
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Ice"
+  xcursor-size 24
+}

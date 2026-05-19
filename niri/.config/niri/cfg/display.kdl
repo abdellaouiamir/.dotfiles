@@ -1,6 +1,10 @@
-// monitors
+// ────────────── Output Configuration ──────────────
+// You can run `niri msg outputs` to get the correct name for your displays.
+// You will have to remove "/-" and edit it before it takes effect.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // niri msg output "eDP-1" off
 // niri msg outputs
+
 output "HDMI-A-1" {
     mode "1920x1080@180.003"
 
