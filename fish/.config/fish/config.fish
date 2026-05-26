@@ -36,7 +36,7 @@ set -g fish_history_ignore_space
 set -gx BAT_THEME "Catppuccin Mocha"
 
 # FZF initialization for Fish
-fzf --fish | source
+#fzf --fish | source
 
 # Uncomment if needed:
 # set -gx FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
