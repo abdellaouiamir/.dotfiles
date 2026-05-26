@@ -8,6 +8,11 @@ starship
 keyd
 nvim
 
+#
+fish
+fd
+bat
+
 kitty
 ghostty
 
