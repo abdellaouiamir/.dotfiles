@@ -1,17 +1,7 @@
 // Window rules
 /* All Apps  */
-window-rule {
-  geometry-corner-radius 20
-  clip-to-geometry true
-  opacity 0.9 
-  background-effect {
-    blur true
-    xray false
-    }
-  // fix blur settings
-  draw-border-with-background false
-}
 
+// blur settings
 blur {
   on
   passes 2        // more passes = stronger blur (default: 3) //2
@@ -26,41 +16,64 @@ blur {
 // /usr/share/applications # remode .desktop
 // flatpak list
 
+// rounded corner
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+}
+
+// blur
+window-rule {
+  background-effect {
+    blur true
+    xray false
+  }
+  opacity 0.9 
+  // fix blur settings
+  draw-border-with-background false
+}
+
 // opacity
 window-rule {
-    match app-id=r"^com\.mitchellh\.ghostty$"
-    background-effect {
-      blur false
-      xray false
-    }
-    opacity 0.8
+  match app-id=r"^com\.mitchellh\.ghostty$"
+  background-effect {
+    blur false
+    xray false
+  }
+  opacity 0.8
 }
 
 // no blur, no opacity
 window-rule {
-    match app-id=r"^org\.gnome\.Showtime$"
-    background-effect {
-      blur false
-      xray false
-    }
-    opacity 1.0
+  match app-id=r"^org\.gnome\.Showtime$"
+  match app-id=r"brave-origin-nightly$"
+  background-effect {
+    blur false
+    xray false
+  }
+  opacity 1.0
 }
 
+// full width
 window-rule {
-    match app-id=r"^org\.wezfurlong\.wezterm$"
-    default-column-width 
+  match app-id=r"^org\.wezfurlong\.wezterm$"
+  match app-id=r"firefox$"
+  match app-id=r"brave-origin-nightly$"
+  default-column-width 
 }
 
+//open in floating window
 window-rule {
-    match app-id=r"firefox$" title="^Picture-in-Picture$"
-    open-floating true
+  match app-id=r"firefox$" title="^Picture-in-Picture$"
+  open-floating true
 }
 
+//block-out-screenshot
 window-rule {
-    match app-id=r"^org\.keepassxc\.KeePassXC$"
-    match app-id=r"^org\.gnome\.World\.Secrets$"
-    block-out-from "screen-capture"
+  match app-id=r"^org\.keepassxc\.KeePassXC$"
+  match app-id=r"^org\.gnome\.World\.Secrets$"
+  block-out-from "screen-capture"
 
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
+  // Use this instead if you want them visible on third-party screenshot tools.
+  // block-out-from "screencast"
 }
