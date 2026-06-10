@@ -1,0 +1,6 @@
+# exe/bat
+faugus-launcher file.exe
+faugus-run file.exe
+umu-run file.exe
+
+wine file.exe

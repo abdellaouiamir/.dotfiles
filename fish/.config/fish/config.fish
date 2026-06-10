@@ -19,7 +19,6 @@ if status is-interactive
   # fisher install PatrickF1/fzf.fish
   # fisher install pure-fish/pure (or use starship below)
   # fisher install catppuccin/fish
-  fish_config theme choose catppuccin-mocha --color-theme=dark
 
   # =============================================================================
   # 3. History Settings

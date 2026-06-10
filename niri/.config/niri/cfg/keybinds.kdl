@@ -302,5 +302,9 @@ binds {
 
     //custom scripts
     Mod+A { spawn "kitty" "-e" "tmux-sessionizer.sh" ; }
+    //Mod+Z { spawn "pkexec" "systemctl" "stop" "keyd" ; }
+    Mod+Z { spawn-sh "kitty -e pkexec systemctl stop keyd" ; }
+    Mod+Ctrl+Z { spawn-sh "kitty -e pkexec systemctl start keyd" ; }
+    //Shift+Ctrl
     //Mod+A { spawn "ghostty" "-e" "/home/k1ng/.local/bin/tmux-sessionizer.sh" ; }
 }

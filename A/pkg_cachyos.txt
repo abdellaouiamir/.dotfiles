@@ -13,8 +13,13 @@ fish
 fd
 bat
 
+#terminal
 kitty
 ghostty
+
+#compression
+unrar
+7zip
 
 #niri
 niri
@@ -36,7 +41,19 @@ discord
 
 #gaming
 cachyos-gaming-meta
-cachyos-gaming-applications
+#cachyos-gaming-applications  // bloated
+  cachyos-gaming-meta
+  gamescope
+  goverlay  //i
+  heroic-games-launcher
+  lib32-mangohud
+  lutris
+  mangohud //i
+  steam //i
+  wqy-zenhei //i
+
+wqy-zenhei // chines font
+goverlay  // fps counter // depend on mangoud  // lib32-mangohud for 32 bit games not installed
 protonplus // manage proton on any luncher
 steam
 faugus-launcher
@@ -64,9 +81,7 @@ paru -S qt6ct
 
 #config
 stow fastfetch ghostty git kitty niri ssh starship tmux zsh
-stow noctalia nvim
-keyd
-
+noctalia nvim keyd
 
 #programming
 nodejs-lts-krypton
