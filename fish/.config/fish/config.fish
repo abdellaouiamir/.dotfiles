@@ -1,3 +1,23 @@
+if status is-login
+    # Commands here run ONLY in login shells
+    #set -gx PATH $HOME/.local/bin $PATH
+
+    # Setup fzf color
+    # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+
+    set -gx FZF_DEFAULT_OPTS " \
+	    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+	    --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+	    --color=selected-bg:#45475a \
+	    --multi"
+
+    # Editor settings
+    set -gx EDITOR vim
+    set -gx SUDO_EDITOR $EDITOR
+
+    # set -gx GOPATH $HOME/.go
+end
+
 if status is-interactive
   # Commands to run in interactive sessions can go here
   # =============================================================================
@@ -25,19 +45,19 @@ if status is-interactive
   # =============================================================================
   # Fish handles history duplicate reduction and real-time sharing automatically.
   # To ignore commands starting with a space:
-  set -g fish_history_ignore_space
+  #set -g fish_history_ignore_space
 
-  # Note: Fish saves history in a different format natively, 
+  # Note: Fish saves history in a different format natively,
   # so HISTSIZE and HISTFILE tweaks aren't strictly mapped like Zsh.
 
   # =============================================================================
   # 4. Environment Variables & FZF
   # =============================================================================
   # Bat theme
-  set -gx BAT_THEME "Catppuccin Mocha"
+  #set -gx BAT_THEME "Catppuccin Mocha"
 
   # FZF initialization for Fish
-  #fzf --fish | source
+  fzf --fish | source
 
   # Uncomment if needed:
   # set -gx FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"

@@ -1,25 +1,19 @@
-zsh
-tmux
-fzf
-stow
-git
-fastfetch
-starship
-keyd
-nvim
-
-#
+tmux fzf stow git fastfetch starship keyd unrar 7zip
 fish
-fd
-bat
 
 #terminal
 kitty
 ghostty
+#font
+ttf-jetbrains-mono-nerd
+ttf-meslo-nerd
 
-#compression
-unrar
-7zip
+#
+nvim
+yazi
+zsh
+fd
+bat
 
 #niri
 niri
@@ -30,14 +24,14 @@ wl-clipboard
 cliphist
 power-profiles-daemon
 papirus-icon-theme
-ttf-jetbrains-mono-nerd
 xwayland-satellite //fix steam on niri
 
 #gnome
-extension-manager
+extension-manager // flatpak
 
 #apps
 discord
+brave-origin-bin
 
 #gaming
 cachyos-gaming-meta
@@ -50,7 +44,7 @@ cachyos-gaming-meta
   lutris
   mangohud //i
   steam //i
-  wqy-zenhei //i
+  wqy-zenhei 
 
 wqy-zenhei // chines font
 goverlay  // fps counter // depend on mangoud  // lib32-mangohud for 32 bit games not installed
@@ -66,23 +60,21 @@ sudo virsh net-autostart default
 sudo virsh list
 
 #flatpak
-keepasxc
+keepasxc /i
 flatseal
 
 #aur
 nirimod
-bibata-cursor-theme-bin
-brave-origin-nightly-bin
-
-#theme
-paru -S adw-gtk-theme nwg-look
-paru -S qt6ct
+bibata-cursor-theme-bin /i
 
 
 #config
 stow fastfetch ghostty git kitty niri ssh starship tmux zsh
 noctalia nvim keyd
 
-#programming
-nodejs-lts-krypton
-npm
+
+starship fish fastfetch tmux kitty ghostty ssh git
+
+#theme
+paru -S adw-gtk-theme nwg-look
+paru -S qt6ct
