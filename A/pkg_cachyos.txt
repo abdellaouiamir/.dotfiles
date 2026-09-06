@@ -53,6 +53,17 @@ steam
 faugus-launcher
 
 #virtualazation
+sudo pacman -S qemu-full virt-manager
+systemctl enable --now libvirtd.service
+sudo virsh net-autostart default
+
+# This will add the user to the "libvirt" group so they can use it:
+sudo usermod -aG libvirt $USER
+# LXC backend (optional, for linux containers, enabling both backends does not conflict):
+systemctl enable --now libvirtd.service
+# QEMU backend (for VMs):
+systemctl enable --now libvirtd.socket
+
 qemu-full // usermod -aG libvirt $USER // systemctl enable --now libvirtd.socket
 virt-manager
 sudo virsh net-list --all
@@ -78,3 +89,8 @@ starship fish fastfetch tmux kitty ghostty ssh git
 #theme
 paru -S adw-gtk-theme nwg-look
 paru -S qt6ct
+
+
+
+#
+pacman -S noctalia niri

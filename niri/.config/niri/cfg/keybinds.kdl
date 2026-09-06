@@ -265,39 +265,6 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
 
-    //noctalia key bindgs
-
-    // Core Noctalia binds
-    Mod+D hotkey-overlay-title="Run an Application" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+S { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-    //Mod+Comma { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
-
-    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
-
-    // Audio & Brightness
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-    XF86AudioMicMute allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
-
-    //Media controle
-    XF86AudioPlay allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "playPause"; }
-    XF86AudioStop allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "pause"; }
-    XF86AudioNext allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "next"; }
-    XF86AudioPrev allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous"; }
-
-
-    //clipboard and emoji
-    //Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; } // native solution
-    //Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "command"; }
-    Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
-
-    //Plugins keybinds
-    Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipboard" "toggle"; }
-    Mod+Shift+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipboard" "wipe"; }
-    Mod+B { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
 
 
     //custom scripts

@@ -1,21 +1,94 @@
 // noctalia
-/* Noctalia: blur everywhere without xray for a better look */
-layer-rule {
-  match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
-  background-effect {
-    blur true
-    xray false
-    }
-  opacity 0.9 
+spawn-at-startup "noctalia"
+
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
 }
 
-// Set the overview wallpaper on the backdrop.
 layer-rule {
-  match namespace="^noctalia-overview*"
+  match namespace="^noctalia-backdrop"
   place-within-backdrop true
+}
+
+//blur
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    blur true
+  }
+}
+
+/* Enable blur on noctalia's window switcher and disable xray. */
+layer-rule {
+    match namespace="noctalia-window-switcher"
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
+}
+
+binds {
+    // Core Noctalia binds
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+    Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
+    // Niri has a built-in window switcher you might want to try it to see which one you prefer.
+
+    // Audio & Brightness
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+
+    //Media controle
+    XF86AudioPlay allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioStop allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+
+    //noctalia key bindgs
+
+    // Core Noctalia binds
+    //Mod+D hotkey-overlay-title="Run an Application" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    //Mod+S { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    //Mod+Comma { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+
+    //Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+
+    // Audio & Brightness
+    //XF86AudioRaiseVolume allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    //XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    //XF86AudioMute allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    //XF86AudioMicMute allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+    //XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    //XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+
+    //Media controle
+    //XF86AudioPlay allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "playPause"; }
+    //XF86AudioStop allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "pause"; }
+    //XF86AudioNext allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "next"; }
+    //XF86AudioPrev allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous"; }
+
+
+    //clipboard and emoji
+    //Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; } // native solution
+    //Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "command"; }
+    //Mod+M { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+
+    //Plugins keybinds
+    //Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipboard" "toggle"; }
+    //Mod+Shift+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipboard" "wipe"; }
+    //Mod+B { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
 }

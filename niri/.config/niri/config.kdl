@@ -10,4 +10,5 @@ include "./cfg/misc.kdl"
 include "./cfg/rules.kdl"
 include "./cfg/noctalia-shell.kdl"
 
-include "./noctalia.kdl"
+
+include "noctalia.kdl"
