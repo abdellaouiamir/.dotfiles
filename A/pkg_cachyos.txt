@@ -94,3 +94,22 @@ paru -S qt6ct
 
 #
 pacman -S noctalia niri
+
+
+
+##
+pacman -S bpftune-git  
+systemctl status bpftune
+
+pacman -S profile-sync-daemon  
+fuse-overlayfs profile-sync-daemon 
+
+
+
+
+## service from cachyos hello
+
+systemctl --user status psd.service
+systemctl status ananicy-cpp.service
+systemctl status bpftune
+

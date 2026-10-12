@@ -267,26 +267,26 @@ vimcmd_visual_symbol = '[](bold fg:lavender)'
 
 [palettes.noctalia]
 # Standard colors
-blue      = "#f4b7b8"
+blue      = "#debcdf"
 red       = "#ffb4ab"
-green     = "#e6b4ff"
-yellow    = "#d3c0d8"
-cyan      = "#d3c0d8"
-magenta   = "#e6b4ff"
+green     = "#acc7ff"
+yellow    = "#bec6dc"
+cyan      = "#bec6dc"
+magenta   = "#acc7ff"
 white     = "#e2e2e2"
 black     = "#474747"
 
 # Extended palette (Catppuccin-compatible names)
-rosewater = "#d3c0d8"
+rosewater = "#bec6dc"
 flamingo  = "#ffb4ab"
-pink      = "#e6b4ff"
-mauve     = "#e6b4ff"
+pink      = "#acc7ff"
+mauve     = "#acc7ff"
 maroon    = "#ffb4ab"
-peach     = "#d3c0d8"
-teal      = "#d3c0d8"
-sky       = "#d3c0d8"
-sapphire  = "#f4b7b8"
-lavender  = "#e6b4ff"
+peach     = "#bec6dc"
+teal      = "#bec6dc"
+sky       = "#bec6dc"
+sapphire  = "#debcdf"
+lavender  = "#acc7ff"
 
 # Text shades
 text      = "#e2e2e2"
